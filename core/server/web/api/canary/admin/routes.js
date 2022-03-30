@@ -113,8 +113,6 @@ module.exports = function apiRoutes() {
 
     router.get('/members/stats/count', mw.authAdminApi, http(api.members.memberStats));
     router.get('/members/stats/mrr', mw.authAdminApi, http(api.members.mrrStats));
-    router.get('/members/stats/subscribers', mw.authAdminApi, http(api.members.subscriberStats));
-    router.get('/members/stats/gross_volume', mw.authAdminApi, http(api.members.grossVolumeStats));
 
     router.get('/members/events', mw.authAdminApi, http(api.members.activityFeed));
 
@@ -290,6 +288,7 @@ module.exports = function apiRoutes() {
     router.get('/actions', mw.authAdminApi, http(api.actions.browse));
 
     // ## Email Preview
+    // @TODO: rename to email_previews in 5.0
     router.get('/email_preview/posts/:id', mw.authAdminApi, http(api.email_preview.read));
     router.post('/email_preview/posts/:id', mw.authAdminApi, http(api.email_preview.sendTestEmail));
 
